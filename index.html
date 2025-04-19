@@ -39,22 +39,14 @@
     .hero { background: var(--mid-blue); text-align: center; padding: 4rem 0; }
     .hero h1 { color: var(--primary-blue); font-size: 2.75rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.125rem; max-width: 700px; margin: 0 auto 2rem; }
-    .placeholder-img {
-      width: 100%; border-radius: var(--radius); background: #ccc;
-      height: 400px; display:flex; align-items:center; justify-content:center;
-      color: #666; font-size: 1rem;
-    }
+    .placeholder-img { width: 100%; border-radius: var(--radius); background: #ccc; height: 400px; display:flex; align-items:center; justify-content:center; color: #666; font-size: 1rem; }
 
-    /* TWO‑COLUMN LAYOUT */
-    .two-col { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .two-col > * { flex: 1; min-width: 280px; }
-
-    /* FORM + REVIEWS */
+    /* QUOTE FORM */
+    #quote { padding:4rem 0; }
+    #quote .card { max-width: 600px; margin: 0 auto; padding: 2rem; }
     #quote .form-group { margin-bottom: 1rem; }
     #quote label { display: block; font-weight:600; margin-bottom:.25rem; }
     #quote input, #quote select { width:100%; padding:.75rem; border:2px solid var(--accent-blue); border-radius:50px; }
-
-    .card { background:#fff; border-radius: var(--radius); box-shadow:0 3px 10px rgba(0,0,0,0.05); padding:1.5rem; }
 
     /* ABOUT / WHY */
     #about-us { background: var(--primary-blue); color: #fff; padding:4rem 0; }
@@ -64,9 +56,8 @@
 
     /* BOOK YOUR MOVE */
     #book { padding:4rem 0; }
-    #book .card { padding:0; overflow:hidden; }
-    #book .book-text { background: var(--primary-blue); color:#fff; padding:2rem; }
-    #book .book-text h2 { margin-bottom:1rem; }
+    #book .card { display:flex; flex-wrap:wrap; box-shadow:0 3px 10px rgba(0,0,0,0.05); border-radius: var(--radius); overflow:hidden; }
+    #book .book-text { background: var(--primary-blue); color:#fff; padding:2rem; flex:1; }
     #book .book-img { flex:1; }
     #book .book-img .placeholder-img { height: 100%; }
 
@@ -75,9 +66,6 @@
     #testimonials h2 { font-size:2rem; margin-bottom:.5rem; }
     #testimonials .stars { color: gold; margin-bottom:.5rem; }
     #testimonials .testimonial-card { max-width:800px; margin:1rem auto; padding:2rem; background: var(--mid-blue); border-radius: var(--radius); position: relative; }
-    #testimonials .testimonial-card p { font-size:1rem; }
-    #testimonials .testimonial-card .author { margin-top:1rem; font-weight:600; }
-    #testimonials .testimonial-card .location { font-size:.9rem; color: var(--primary-blue); }
     #testimonials .nav-arrows { position:absolute; top:50%; width:100%; display:flex; justify-content:space-between; transform:translateY(-50%); }
     #testimonials .nav-arrows i { background: var(--accent-blue); color:#fff; padding:.5rem; border-radius:50%; font-size:1rem; cursor:pointer; }
 
@@ -98,11 +86,7 @@
 
     /* READY CTA */
     #ready { text-align:center; padding:4rem 0; }
-    .placeholder-circle {
-      width:200px; height:200px; border-radius:50%; background: var(--accent-blue);
-      margin:0 auto 1rem; display:flex; align-items:center; justify-content:center;
-      color:#fff; font-size:2rem;
-    }
+    .placeholder-circle { width:200px; height:200px; border-radius:50%; background: var(--accent-blue); margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; color:#fff; font-size:2rem; }
 
     /* FOOTER */
     footer { background: var(--primary-blue); color:#fff; padding:4rem 0; }
@@ -114,7 +98,6 @@
     footer ul li a { color: #fff; }
     footer .social { display:flex; gap:1rem; margin-top:1rem; }
     footer .social a { color:#fff; font-size:1.25rem; }
-    footer .footer-logo { margin-top:2rem; }
   </style>
 </head>
 <body>
@@ -122,9 +105,7 @@
   <!-- NAV -->
   <nav>
     <div class="container">
-      <div class="logo">
-        <img src="https://via.placeholder.com/150x50?text=Vancouvers+Movers" alt="Vancouvers Movers Logo">
-      </div>
+      <div class="logo"><img src="https://via.placeholder.com/150x50?text=Vancouvers+Movers" alt="Vancouvers Movers Logo"></div>
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#locations">Locations</a></li>
@@ -133,86 +114,89 @@
       </ul>
       <div class="actions">
         <a href="#quote" class="btn btn-red">Get My Quote</a>
-        <a href="tel:6043243333" style="color: var(--accent-blue); font-weight:600;">
-          <i class="fas fa-phone"></i> (604) 324‑3333
-        </a>
+        <a href="tel:6043243333" style="color: var(--accent-blue); font-weight:600;"><i class="fas fa-phone"></i> (604) 324‑3333</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="container">
+  <section class="hero" id="home"><div class="container">
       <h1>Vancouvers Movers</h1>
       <p>Experience your next move with Vancouvers Movers. From packing to storage and every step in‑between, we ensure a seamless, stress‑free relocation. Get your free quote today!</p>
       <a href="#quote" class="btn btn-accent">Get My Quote</a>
-      <div class="placeholder-img" style="margin-top:2rem;">
-        Hero Image Placeholder
-      </div>
-    </div>
-  </section>
+      <div class="placeholder-img" style="margin-top:2rem;">Hero Image Placeholder</div>
+    </div></section>
 
-  <!-- QUOTE + REVIEWS -->
+  <!-- QUOTE FORM -->
   <section id="quote">
-    <div class="container two-col">
-      <!-- Quote Form -->
+    <div class="container">
       <div class="card">
-        <h2 style="color: var(--primary-blue); margin-bottom:1rem;">Get My Quote</h2>
+        <h2 style="color: var(--primary-blue); text-align:center; margin-bottom:1.5rem;">Get Your Free Quote</h2>
         <form>
-          <!-- form fields… -->
+          <div class="form-group">
+            <label for="date">Date of Move</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="fname">First Name*</label>
+            <input type="text" id="fname" name="fname" placeholder="First Name" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name*</label>
+            <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number*</label>
+            <input type="tel" id="phone" name="phone" placeholder="(604) 123‑4567" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="from">Moving From*</label>
+            <input type="text" id="from" name="from" placeholder="City you’re moving from" required>
+          </div>
+          <div class="form-group">
+            <label for="to">Moving To</label>
+            <input type="text" id="to" name="to" placeholder="City you’re moving to">
+          </div>
+          <div class="form-group">
+            <label for="size">Move Size*</nlabel>
+            <select id="size" name="size" required>
+              <option value="">– Please Select –</option>
+              <option>Studio</option>
+              <option>1 Bedroom</option>
+              <option>2 Bedrooms</option>
+              <option>3 + Bedrooms</option>
+            </select>
+          </div>
           <button type="submit" class="btn btn-accent" style="width:100%;">Submit</button>
         </form>
       </div>
-
-      <!-- Customer Reviews -->
-      <div>
-        <div class="card">
-          <h2 style="color: var(--primary-blue); margin-bottom:1rem;">Customer Reviews</h2>
-          <p>Vancouvers Movers is renowned for being the moving company you can trust, consistently receiving high scores and positive feedback.</p>
-          <div style="background:#F0F4FF; border-radius: var(--radius); padding:1rem; text-align:center;">
-            <i class="fab fa-google fa-2x" style="color:#DB4437;"></i>
-            <h3 style="display:inline-block; margin-left:.5rem; vertical-align:middle;">4.5 <span style="color:gold;">★★★★☆</span> (90)</h3>
-            <br><br>
-            <a href="#" class="btn btn-accent">Leave a Review</a>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- MOVING TIPS -->
-  <section id="moving-tips">
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:2rem; color: var(--primary-blue);">Moving Tips</h2>
-      <ul>
-        <!-- tips… -->
-      </ul>
-    </div>
-  </section>
-
-  <!-- ABOUT US / WHY CHOOSE -->
+  <!-- ABOUT US -->
   <section id="about-us">
     <div class="container">
       <h2>Why Choose Vancouvers Movers</h2>
-      <div class="feature">
-        <h3>Local Expertise</h3>
-        <p>Our team knows Vancouver inside and out—your move is in trusted hands.</p>
-      </div>
-      <!-- more features… -->
+      <div class="feature"><h3>Local Expertise</h3><p>Our team knows Vancouver inside and out—your move is in trusted hands.</p></div>
+      <div class="feature"><h3>Reliable Service</h3><p>We pride ourselves on timeliness, care, and clear communication.</p></div>
+      <div class="feature"><h3>Community Focus</h3><p>A portion of every move supports local Vancouver initiatives.</p></div>
+      <div class="feature"><h3>Smoothest Moves</h3><p>From expert packing to careful unloading, we handle the heavy lifting.</p></div>
     </div>
   </section>
 
   <!-- BOOK YOUR MOVE -->
   <section id="book">
-    <div class="container card two-col">
+    <div class="container card">
       <div class="book-text">
         <h2>Book Your Move Today</h2>
         <p>Whether you’re relocating across town or the province, our team ensures a seamless, stress‑free experience. Secure your date now!</p>
         <a href="#quote" class="btn btn-accent">Let’s Talk Moving</a>
       </div>
-      <div class="book-img">
-        <div class="placeholder-img">Truck Image Placeholder</div>
-      </div>
+      <div class="book-img"><div class="placeholder-img">Truck Image Placeholder</div></div>
     </div>
   </section>
 
@@ -221,11 +205,8 @@
     <h2>Our Testimonials</h2>
     <div class="stars">★★★★★ 5.0/5.0</div>
     <div class="testimonial-card">
-      <div class="nav-arrows">
-        <i class="fas fa-chevron-left"></i>
-        <i class="fas fa-chevron-right"></i>
-      </div>
-      <p>"The movers were incredibly fast and efficient…"</p>
+      <div class="nav-arrows"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-right"></i></div>
+      <p>"The movers were incredibly fast and efficient, as well as kind and thoughtful. Moving is stressful, but the move team made it a great experience for us."</p>
       <div class="author">— Lynne</div>
       <div class="location"><i class="fas fa-map-marker-alt"></i> Vancouver</div>
     </div>
@@ -235,108 +216,34 @@
   <section id="locations">
     <div class="container">
       <h2>Service Areas</h2>
-      <div class="two-col">
-        <div class="map placeholder-img">Map Placeholder</div>
-        <ul class="areas">
-          <li><i class="fas fa-map-marker-alt"></i> Downtown</li>
-          <!-- etc… -->
-        </ul>
-      </div>
-      <p style="text-align:center; margin:1rem 0;">
-        <a href="#" style="color: var(--accent-blue); font-weight:600;">Show More</a>
-      </p>
-      <div class="card" style="margin-top:1rem; text-align:center;">
-        <p>Don't see your area listed? We can still help you move.</p>
-        <a href="#contact" class="btn btn-accent">Contact Us Today</a>
-      </div>
+      <div class="two-col"><div class="map placeholder-img">Map Placeholder</div><ul class="areas"><li><i class="fas fa-map-marker-alt"></i> Downtown</li><li><i class="fas fa-map-marker-alt"></i> Gastown</li><li><i class="fas fa-map-marker-alt"></i> Kitsilano</li><li><i class="fas fa-map-marker-alt"></i> Mount Pleasant</li><li><i class="fas fa-map-marker-alt"></i> Yaletown</li><li><i class="fas fa-map-marker-alt"></i> West End</li></ul></div>
+      <p style="text-align:center; margin:1rem 0;"><a href="#contact" style="color: var(--accent-blue); font-weight:600;">Contact Us Today</a></p>
     </div>
   </section>
 
-  <!-- CONTACT BRANCH -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <h2>Contact Our Vancouver Branch</h2>
       <div class="info">
-        <div class="item">
-          <i class="fas fa-map-marker-alt"></i>
-          <h3>Address</h3>
-          <p>1021 West Hastings Street<br>MNP Tower, 9th Floor<br>Vancouver, BC V6E 0C3</p>
-        </div>
-        <div class="item">
-          <i class="fas fa-phone"></i>
-          <h3>Phone</h3>
-          <p><a href="tel:6043243333" style="color: var(--accent-blue);">(604) 324‑3333</a></p>
-        </div>
-        <div class="item">
-          <i class="fas fa-clock"></i>
-          <h3>Hours</h3>
-          <p>
-            Mon–Fri: 6 AM – 6 PM<br>
-            Sat–Sun: 7 AM – 4:30 PM
-          </p>
-        </div>
+        <div class="item"><i class="fas fa-map-marker-alt"></i><h3>Address</h3><p>1021 West Hastings Street<br>MNP Tower, 9th Floor<br>Vancouver, BC V6E 0C3</p></div>
+        <div class="item"><i class="fas fa-phone"></i><h3>Phone</h3><p><a href="tel:6043243333" style="color: var(--accent-blue);">(604) 324‑3333</a></p></div>
+        <div class="item"><i class="fas fa-clock"></i><h3>Hours</h3><p>Mon–Fri: 6 AM – 6 PM<br>Sat–Sun: 7 AM – 4:30 PM</p></div>
       </div>
     </div>
   </section>
 
   <!-- READY CTA -->
-  <section id="ready">
-    <div class="container">
-      <div class="placeholder-circle">
-        <i class="fas fa-box-open"></i>
-      </div>
-      <h2>Ready to Go?</h2>
-      <a href="#quote" class="btn btn-outline-red">Get My Quote</a>
-    </div>
-  </section>
+  <section id="ready"><div class="container"><div class="placeholder-circle"><i class="fas fa-box-open"></i></div><h2>Ready to Go?</h2><a href="#quote" class="btn btn-outline-red">Get My Quote</a></div></section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container footer-cols">
-      <div class="col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#">Residential</a></li>
-          <li><a href="#">Commercial</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h4>Locations</h4>
-        <ul>
-          <li><a href="#">Alberta</a></li>
-          <li><a href="#">British Columbia</a></li>
-          <!-- etc… -->
-        </ul>
-      </div>
-      <div class="col">
-        <h4>Moving Tips</h4>
-        <ul>
-          <li><a href="#">Our Blog</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Moving Checklist</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h4>About Us</h4>
-        <ul>
-          <li><a href="#">Testimonials</a></li>
-          <li><a href="#">In The News</a></li>
-          <li><a href="#">Giving Back</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <div class="footer-logo">
-          <img src="https://via.placeholder.com/150x50?text=Vancouvers+Movers" alt="Vancouvers Movers Logo">
-        </div>
-        <div class="social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <footer><div class="container footer-cols">
+      <div class="col"><h4>Services</h4><ul><li><a href="#">Residential</a></li><li><a href="#">Commercial</a></li></ul></div>
+      <div class="col"><h4>Locations</h4><ul><li><a href="#">Downtown</a></li><li><a href="#">Kitsilano</a></li><li><a href="#">Yaletown</a></li><li><a href="#">West End</a></li></ul></div>
+      <div class="col"><h4>Moving Tips</h4><ul><li><a href="#">Our Blog</a></li><li><a href="#">FAQ</a></li><li><a href="#">Moving Checklist</a></li></ul></div>
+      <div class="col"><h4>About Us</h4><ul><li><a href="#">Testimonials</a></li><li><a href="#">Careers</a></li><li><a href="#">Giving Back</a></li></ul></div>
+      <div class="col"><div class="footer-logo"><img src="https://via.placeholder.com/150x50?text=Vancouvers+Movers" alt="Vancouvers Movers Logo"></div><div class="social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div>
+    </div></footer>
 
 </body>
 </html>
