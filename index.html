@@ -64,6 +64,13 @@
     footer ul li a { color:#fff; }
     .social { display:flex; gap:1rem; margin-top:1rem; }
     .social a { color:#fff; font-size:1.25rem; }
+    .placeholder-img img {
+      display: block;           /* remove that inline gap */
+      width: 100%;              /* fill the wrapper width */
+      height: 100%;             /* fill the wrapper height */
+      object-fit: cover;        /* crop/scale nicely */
+      border-radius: var(--radius); /* keep your rounded corners */
+    }
   </style>
 </head>
 <body>
